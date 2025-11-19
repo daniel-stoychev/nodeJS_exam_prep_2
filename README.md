@@ -3,9 +3,9 @@
 ## Setup
 
 - [x] initialize project & setup debuging
-- [ ] install & config Express
-- [ ] make firts commit
-- [ ] install & config Mongoose (MongoDB)
-- [ ] add resources
-- [ ] install & config Handlebars & static files
-- [ ] render homePage
+- [x] install & config Express
+- [x] install & config Mongoose (MongoDB)
+  - [x] Add error hander for failed connection
+- [x] add resources
+- [x] install & config Handlebars & static files
+- [x] render homePage
