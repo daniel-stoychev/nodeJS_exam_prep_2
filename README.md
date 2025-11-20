@@ -24,10 +24,11 @@
   - [x] update routes
     - [x] login
     - [x] register
-- [] add urlencoded() to index
-- [] Add User model
-  - [] Add password hashing
+- [x] add urlencoded() to index
+- [x] Add User model
+  - [x] Add password hashing
 - [] Add User service
+- [] Fix Register.hbs
 - [] Handle registration (create user in database)
 - [] RePassword must match
 - [] Automatic login on register
