@@ -20,14 +20,14 @@
 
 ## Register functionality
 
-- [] Add new controller `authController`
-  - [] update routes
-    - [] login
-    - [] register
-  - [] add urlencoded() to index
+- [x] Add new controller `authController`
+  - [x] update routes
+    - [x] login
+    - [x] register
+- [] add urlencoded() to index
 - [] Add User model
   - [] Add password hashing
 - [] Add User service
-- [x] Handle registration (create user in database)
-- [x] RePassword must match
-- [x] Automatic login on register
+- [] Handle registration (create user in database)
+- [] RePassword must match
+- [] Automatic login on register
