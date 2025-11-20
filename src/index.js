@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import handlebars from 'express-handlebars'
+import routs from '../routes.js';
+
 
 const app = express();
 
@@ -26,12 +28,8 @@ app.set('views', 'src/views');
 // Setup static files
 app.use(express.static('src/public'));
 
-
-app.get('/', (req, res) => {
-    res.render('home', {
-        layout: false
-    });
-});
+// Setup routes
+app.use(routs);
 
 
 
