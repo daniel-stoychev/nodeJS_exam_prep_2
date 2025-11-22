@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import handlebars from 'express-handlebars'
 import routs from '../routes.js';
+import cookieParser from 'cookie-parser';
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(express.static('src/public'));
 
 //middlewares
 app.use(express.urlencoded());
+app.use(cookieParser());
 
 // Setup routes
 app.use(routs);

@@ -34,9 +34,27 @@
 
 ## Login functionality
 
-- [] Handle login page
-  - [] Validate user
-  - [] Validate password
-  - [] Create token
-  - [] Return token to client
-  - [] Automatic login on register
+- [x] Genearte view
+- [x] Validate user
+- [x] Validate password
+- [x] Create token
+  - [x] create .enc with secret
+  - [x] create tokenUtils
+- [x] Return token to client
+- [x] Automatic login on register
+
+## Logout functionality
+
+- [] Add logout action
+- [] Clear cookie
+
+Add animal page
+
+- [] Fix create.html & update form
+- [] Render add animal page
+  - [] Add animal controller
+  - [] Add route to routes.js
+- [] Add animal model
+- [] Add animal service & save animal collection to database
+- [] Redirect to dashboard page
+- [] Add required validations to model
