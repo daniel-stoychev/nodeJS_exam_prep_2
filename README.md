@@ -16,7 +16,6 @@
 - [x] add homeController
 - [x] create routes
 - [x] update home
-- [x] render blogs
 
 ## Register functionality
 
@@ -59,13 +58,29 @@
 - [x] Add isGuest route guard
 - [x] Assign guards to `authController`
 
-Add animal page
+## Add Create blog page
 
-- [] Fix create.html & update form
-- [] Render add animal page
-  - [] Add animal controller
-  - [] Add route to routes.js
-- [] Add animal model
-- [] Add animal service & save animal collection to database
-- [] Redirect to dashboard page
-- [] Add required validations to model
+- [x] Fix create.html & update form
+- [x] Render Create blog page
+  - [x] Add blog controller
+  - [x] Add route to routes.js
+- [x] Add blog model
+- [x] Add required validations to model
+- [x] Add blog service & save blog collection to database
+- [x] Add owner ID
+- [] Redirect to newly created blogs to page
+
+## Add All Blogs page
+
+- [] Move catalog.hbs to blogs folder
+- [] Add route in `blogController`
+- [] Render blogs
+
+  - [] Update blogService with `find()`
+
+- []
+
+## Setup home page
+
+- [] Render blogs
+- [] Show No blogs if DB is empty
