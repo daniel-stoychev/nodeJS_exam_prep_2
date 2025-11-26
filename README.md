@@ -72,13 +72,35 @@
 
 ## Add All Blogs page
 
-- [] Move catalog.hbs to blogs folder
-- [] Add route in `blogController`
-- [] Render blogs
+- [x] Move catalog.hbs to blogs folder
+- [x] Add route in `blogController`
+- [x] Render blogs
+  - [x] Update blogService with `find()`
 
-  - [] Update blogService with `find()`
+## Add Details page
 
-- []
+- [x] Move details.hbs to blogs folder
+- [x] Add route in `blogController`
+- [x] Update blogService with `findById()`
+- [x] Add blog Creator to DB collection object upon creation
+- [x] Show details for clicked blog
+- [] Fix followers
+
+## Delete action
+
+- [x] Create delete function at service
+- [x] Update blogController with delete request
+
+  - [x] Validate delete action (only from owner)
+
+  ## Edit action
+
+- [x] Render Edit view
+- [x] Update placehoders in view
+- [x] Add Edit service
+- [x] Add post edit action to controller
+  - [x] validate owner
+- [x] Redirect to current nimal details page
 
 ## Setup home page
 

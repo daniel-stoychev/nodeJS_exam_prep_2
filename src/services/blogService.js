@@ -7,7 +7,19 @@ export default {
             owner: userId
         });
     },
-    async getAll() {
-        await Blog.find();
+    getAll() {
+        const allBlogs = Blog.find();
+        return allBlogs;
+    },
+    async getOne(blogId) {
+        const selectedBlog = await Blog.findById(blogId).populate('owner');
+        return selectedBlog;
+    },
+    deleteOne(blogId) {
+        return Blog.findByIdAndDelete(blogId);
+    },
+    async updateBlog(userId, blogData) {
+        await Blog.findByIdAndUpdate(userId, blogData);
     }
+
 }
