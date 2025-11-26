@@ -38,15 +38,26 @@
 - [x] Validate user
 - [x] Validate password
 - [x] Create token
-  - [x] create .enc with secret
+  - [x] create .env with secret
   - [x] create tokenUtils
+- [x] Install cookie parser
 - [x] Return token to client
 - [x] Automatic login on register
 
 ## Logout functionality
 
-- [] Add logout action
-- [] Clear cookie
+- [x] Add logout action
+- [x] Clear cookie
+
+## Authorization
+
+- [x] Add `authMiddleware`
+  - [x] If no token => `next();`
+  - [x] try to decode token, attach to request & add isAuhtnticated
+  - [x] catch errors -> clear cookie & redirect
+- [x] Add isAuth route guard
+- [x] Add isGuest route guard
+- [x] Assign guards to `authController`
 
 Add animal page
 

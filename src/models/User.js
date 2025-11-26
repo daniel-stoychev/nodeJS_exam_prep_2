@@ -29,7 +29,7 @@ userSchema.virtual('rePassword')
 
 userSchema.pre('validate', function () {
     if (this.isNew && this.password !== this._rePassword) {
-        this.invalidate('rePassword', 'Passwordmissmatch!')
+        this.invalidate('rePassword', 'Passwords missmatch!')
     }
 });
 

@@ -4,7 +4,10 @@ import { generateToken } from "../utils/tokenUtils.js";
 
 export default {
     async register(userData) {
+
         const user = await User.create(userData);
+        console.log(userData.email);
+
         const token = generateToken(user);
         return token;
     },
