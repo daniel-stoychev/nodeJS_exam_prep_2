@@ -34,11 +34,8 @@ blogController.get('/:id/delete', async (req, res) => {
     const blogId = req.params.id;
     const selectedBlog = await blogService.getOne(blogId);
     const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
-    console.log(isOwner);
 
     if (isOwner) {
-        console.log(blogId);
-
         await blogService.deleteOne(blogId);
         res.redirect('/blogs')
     } else {
@@ -52,7 +49,6 @@ blogController.get('/:id/edit', isAuth, async (req, res) => {
 
     const blogId = req.params.id;
     const selectedBlog = await blogService.getOne(blogId);
-    console.log(selectedBlog);
 
     // const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
     res.render('blogs/edit', { selectedBlog });
@@ -63,7 +59,6 @@ blogController.post('/:id/edit', isAuth, async (req, res) => {
     const selectedBlog = await blogService.getOne(blogId);
 
     const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
-    console.log(req.body);
 
 
     if (isOwner) {
@@ -72,7 +67,6 @@ blogController.post('/:id/edit', isAuth, async (req, res) => {
     } else {
         throw new Error("Now owner - cannot edit!");
     }
-    // res.end();
 
 })
 

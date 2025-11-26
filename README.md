@@ -68,7 +68,7 @@
 - [x] Add required validations to model
 - [x] Add blog service & save blog collection to database
 - [x] Add owner ID
-- [] Redirect to newly created blogs to page
+- [x] Redirect to blogs pages
 
 ## Add All Blogs page
 
@@ -104,5 +104,6 @@
 
 ## Setup home page
 
-- [] Render blogs
-- [] Show No blogs if DB is empty
+- [x] Render blogs
+- [x] Show No blogs if DB is empty
+- [x] Show only last 3 posts
