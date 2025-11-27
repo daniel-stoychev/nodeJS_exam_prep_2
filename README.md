@@ -84,6 +84,7 @@
 - [x] Update blogService with `findById()`
 - [x] Add blog Creator to DB collection object upon creation
 - [x] Show details for clicked blog
+- [x] Handle follower section
 
 ## Delete action
 

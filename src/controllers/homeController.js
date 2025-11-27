@@ -3,7 +3,6 @@ import blogService from "../services/blogService.js";
 import User from "../models/User.js";
 import Blog from "../models/Blog.js";
 
-
 const homeController = Router();
 
 homeController.get('/', async (req, res) => {
@@ -25,7 +24,6 @@ homeController.get('/profile', async (req, res) => {
     const currentProfile = await User.findById(currentUserId);
     const createdBlogs = await Blog.find({ owner: currentUserId });
     const followedBlogs = await Blog.find({ follower: currentUserId });
-    console.log(followedBlogs.length);
 
     res.render('profile', {
         user: currentProfile,
@@ -35,11 +33,5 @@ homeController.get('/profile', async (req, res) => {
         followedBlogsNumber: followedBlogs.length,
     });
 });
-
-
-
-
-
-
 
 export default homeController;

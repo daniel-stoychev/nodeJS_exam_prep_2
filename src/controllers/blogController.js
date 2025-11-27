@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import blogService from "../services/blogService.js";
+import Blog from "../models/Blog.js";
+import User from "../models/User.js";
 
 const blogController = Router();
 
@@ -41,13 +43,16 @@ blogController.get('/:id', async (req, res) => {
     const selectedBlog = await blogService.getOne(blogId);
     const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
 
+    const followersId = selectedBlog.follower;
+    const followers = await User.find({ _id: { $in: followersId } });
+    const followerNames = followers.map(user => ` ${user.username}`);
 
     if (req.user !== undefined) {
         const userId = req.user.id;
         const isFollower = selectedBlog.follower.includes(userId);
-        res.render('blogs/details', { selectedBlog, isOwner, isFollower });
+        res.render('blogs/details', { selectedBlog, isOwner, isFollower, followerNames });
     } else {
-        res.render('blogs/details', { selectedBlog, isOwner });
+        res.render('blogs/details', { selectedBlog, isOwner, followerNames });
     }
 
 

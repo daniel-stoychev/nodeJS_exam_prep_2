@@ -6,10 +6,13 @@
         <h2>{{selectedBlog.title}}</h2>
         <h3>{{selectedBlog.category}}</h3>
         <h3>By: {{selectedBlog.owner.username}}</h3>
+        {{#if followerNames}}
         <!--If there are followers-->
-        <h4>Follow By: jace.m, sandra.p</h4>
+        <h4>Follow By: {{followerNames}}</h4>
+        {{else}}
         <!--If there are no followers-->
         <h4>There are no followers yet!</h4>
+        {{/if}}
     </div>
     <div class="details-container-content">
         <p>{{selectedBlog.content}}</p>
