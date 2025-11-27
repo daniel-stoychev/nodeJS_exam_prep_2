@@ -1,5 +1,8 @@
 import { Router } from "express";
 import blogService from "../services/blogService.js";
+import User from "../models/User.js";
+import Blog from "../models/Blog.js";
+
 
 const homeController = Router();
 
@@ -15,6 +18,22 @@ homeController.get('/', async (req, res) => {
     }
 
     res.render('home', { lastThree, isNoPosts });
+});
+
+homeController.get('/profile', async (req, res) => {
+    const currentUserId = req.user.id;
+    const currentProfile = await User.findById(currentUserId);
+    const createdBlogs = await Blog.find({ owner: currentUserId });
+    const followedBlogs = await Blog.find({ follower: currentUserId });
+    console.log(followedBlogs.length);
+
+    res.render('profile', {
+        user: currentProfile,
+        createdBlogs,
+        createdBlogsNumber: createdBlogs.length,
+        followedBlogs,
+        followedBlogsNumber: followedBlogs.length,
+    });
 });
 
 

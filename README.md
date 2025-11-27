@@ -119,3 +119,10 @@
 - [x] Validate user upon registration (if exists)
 - [x] Handle login page
 - [x] Handle add blog page
+
+## Setup Profile page
+
+- [x] Render page
+- [x] Update user information
+- [x] Update data for cteated blogs and cteated blogs number
+- [x] Update data for followed blogs and followed blogs number
