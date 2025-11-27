@@ -84,7 +84,6 @@
 - [x] Update blogService with `findById()`
 - [x] Add blog Creator to DB collection object upon creation
 - [x] Show details for clicked blog
-- [] Fix followers
 
 ## Delete action
 
@@ -107,3 +106,9 @@
 - [x] Render blogs
 - [x] Show No blogs if DB is empty
 - [x] Show only last 3 posts
+
+## Setup follow functionality
+
+- [x] Update Blog model
+- [] Disable follow button for guest users
+- [] Allow "follow/already followed" for logged in users

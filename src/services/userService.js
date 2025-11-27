@@ -6,7 +6,6 @@ export default {
     async register(userData) {
 
         const user = await User.create(userData);
-        console.log(userData.email);
 
         const token = generateToken(user);
         return token;
@@ -19,9 +18,9 @@ export default {
             throw new Error("Email & Password required!");
         }
         const user = await User.findOne({ email });
-        console.log('USER');
 
-        console.log(user);
+
+
 
 
         if (!user) {

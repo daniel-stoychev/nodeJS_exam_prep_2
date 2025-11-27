@@ -25,7 +25,11 @@ const blogSchema = new Schema({
     owner: {
         type: Types.ObjectId,
         ref: 'User'
-    }
+    },
+    follower: [{
+        type: Types.ObjectId,
+        ref: 'User'
+    }]
 })
 
 const Blog = model('Blog', blogSchema);

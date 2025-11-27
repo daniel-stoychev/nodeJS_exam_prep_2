@@ -14,18 +14,22 @@
     <div class="details-container-content">
         <p>{{selectedBlog.content}}</p>
     </div>
-    <div class="btn-container">
-        <!-- Only for registered user and creator of the blog post-->
-        {{#if isOwner}}
-        <a href="/blogs/{{selectedBlog._id}}/edit">Edit</a>
-        <a href="/blogs/{{selectedBlog._id}}/delete">Delete</a>
-        {{else}}
-        <!-- logged in user who has not yet followed the blog-->
-        <a href="/blog/{{selectedBlog._id}}/follow">Follow</a>
-        
-        <!-- logged in user who has already followed the blog-->
-        <p class="follow-pub">You already follow this blog!</p>
-        {{/if}}
+    {{#if isAuthenticated}}
+        <div class="btn-container">
+            <!-- Only for registered user and creator of the blog post-->
+            {{#if isOwner}}
+            <a href="/blogs/{{selectedBlog._id}}/edit">Edit</a>
+            <a href="/blogs/{{selectedBlog._id}}/delete">Delete</a>
+            {{else}}
+                {{#if isFollower}}
+                <!-- logged in user who has already followed the blog-->
+                <p class="follow-pub">You already follow this blog!</p>
+                {{else}}
+                <!-- logged in user who has not yet followed the blog-->
+                <a href="/blogs/{{selectedBlog._id}}/follow">Follow</a>
+                {{/if}}
+            {{/if}}
 
-    </div>
+        </div>
+    {{/if}}
 </div>

@@ -27,7 +27,17 @@ blogController.get('/:id', async (req, res) => {
     const selectedBlog = await blogService.getOne(blogId);
     const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
 
-    res.render('blogs/details', { selectedBlog, isOwner });
+
+    if (req.user !== undefined) {
+        const userId = req.user.id;
+        const isFollower = selectedBlog.follower.includes(userId);
+        res.render('blogs/details', { selectedBlog, isOwner, isFollower });
+    } else {
+        res.render('blogs/details', { selectedBlog, isOwner });
+    }
+
+
+
 });
 
 blogController.get('/:id/delete', async (req, res) => {
@@ -50,15 +60,14 @@ blogController.get('/:id/edit', isAuth, async (req, res) => {
     const blogId = req.params.id;
     const selectedBlog = await blogService.getOne(blogId);
 
-    // const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
     res.render('blogs/edit', { selectedBlog });
 });
 
 blogController.post('/:id/edit', isAuth, async (req, res) => {
     const blogId = req.params.id;
-    const selectedBlog = await blogService.getOne(blogId);
+    const currentBlog = await blogService.getOne(blogId);
 
-    const isOwner = selectedBlog.owner && selectedBlog.owner.equals(req.user?.id);
+    const isOwner = currentBlog.owner && currentBlog.owner.equals(req.user?.id);
 
 
     if (isOwner) {
@@ -68,6 +77,15 @@ blogController.post('/:id/edit', isAuth, async (req, res) => {
         throw new Error("Now owner - cannot edit!");
     }
 
+})
+
+blogController.get('/:id/follow', async (req, res) => {
+    const blogId = req.params.id;
+    const userId = req.user.id;
+
+    await blogService.follow(blogId, userId);
+
+    res.redirect(`/blogs/${blogId}`);
 })
 
 

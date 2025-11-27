@@ -20,6 +20,13 @@ export default {
     },
     async updateBlog(userId, blogData) {
         await Blog.findByIdAndUpdate(userId, blogData);
+    },
+    async follow(blogId, userId) {
+        await Blog.findByIdAndUpdate(blogId, {
+            $addToSet: { follower: userId },
+            new: true,
+            runValidators: true
+        });
     }
 
 }
