@@ -17,8 +17,22 @@ blogController.get('/create', isAuth, (req, res) => {
 blogController.post('/create', isAuth, async (req, res) => {
     const blogData = req.body;
     const userId = req.user.id;
-    await blogService.create(blogData, userId);
-    res.redirect('/blogs');
+
+    try {
+        await blogService.create(blogData, userId);
+        res.redirect('/blogs');
+    } catch (err) {
+        let errorMessage = err.messsage;
+
+        if (err.name === 'ValidationError') {
+            errorMessage = Object.values(err.errors)[0];
+        }
+        res.status(400).render('blogs/create', {
+            error: errorMessage
+        })
+    }
+
+
 })
 
 blogController.get('/:id', async (req, res) => {

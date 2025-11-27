@@ -110,5 +110,12 @@
 ## Setup follow functionality
 
 - [x] Update Blog model
-- [] Disable follow button for guest users
-- [] Allow "follow/already followed" for logged in users
+- [x] Disable follow button for guest users
+- [x] Allow "follow/already followed" for logged in users
+
+## Error handling
+
+- [x] Hanlde register page
+- [x] Validate user upon registration (if exists)
+- [x] Handle login page
+- [x] Handle add blog page

@@ -4,18 +4,18 @@ import bcrypt from 'bcrypt';
 const userSchema = new Schema({
     username: {
         type: String,
-        required: true,
-        minlenght: [2, 'Username too short!']
+        required: [true, 'Username is required!'],
+        minlength: [2, 'Username too short!']
     },
     email: {
         type: String,
-        required: true,
-        minlenght: [10, 'Email should be at least 10 chats long!']
+        required: [true, 'Email is required!'],
+        minlength: [10, 'Email should be at least 10 chats long!']
     },
     password: {
         type: String,
-        required: true,
-        minlenght: [4, 'Password too short!']
+        required: [true, 'Password is required!'],
+        minlength: [4, 'Password too short!']
     },
 });
 

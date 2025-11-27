@@ -11,12 +11,21 @@ authController.get('/register', isGuest, (req, res) => {
 authController.post('/register', isGuest, async (req, res) => {
 
     const userData = req.body;
-    const token = await userService.register(userData);
+    try {
+        const token = await userService.register(userData);
 
-    res.cookie('auth', token);
-    res.redirect('/');
+        res.cookie('auth', token);
+        res.redirect('/');
+    } catch (err) {
+        let errorMessage = err.message;
+        if (err.name === 'ValidationError') {
+            errorMessage = Object.values(err.errors)[0];
+        }
+        res.status(400).render('auth/register', {
+            error: errorMessage
+        })
+    }
 
-    res.end();
 });
 
 authController.get('/login', isGuest, (req, res) => {
@@ -25,10 +34,25 @@ authController.get('/login', isGuest, (req, res) => {
 
 authController.post('/login', isGuest, async (req, res) => {
     const { email, password } = req.body;
-    const token = await userService.login(email, password);
 
-    res.cookie('auth', token);
-    res.redirect('/');
+    try {
+        const token = await userService.login(email, password);
+
+        res.cookie('auth', token);
+        res.redirect('/');
+    } catch (err) {
+        const errMessage = err.message;
+        console.log(errMessage);
+        console.log(err.name);
+
+
+        if (err.name === 'ValidationError') {
+            errMessage = Object.values(err.errors)[0];
+        }
+        res.status(400).render('auth/login', {
+            error: errMessage
+        })
+    }
 
 });
 

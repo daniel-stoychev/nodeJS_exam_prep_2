@@ -5,6 +5,11 @@ import { generateToken } from "../utils/tokenUtils.js";
 export default {
     async register(userData) {
 
+        const userExissts = await User.findOne({ email: userData.email });
+        if (userExissts) {
+            throw new Error("User already exists!");
+
+        }
         const user = await User.create(userData);
 
         const token = generateToken(user);
