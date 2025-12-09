@@ -35,13 +35,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 app.use(authMiddleware);
 
-
-
-
-
 // Setup routes
 app.use(routs);
-
-
 
 app.listen(3030, () => console.log('Server is listening on http://localhost:3030...'));
